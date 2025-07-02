@@ -1,11 +1,9 @@
 const admin = require('firebase-admin');
 
-// Initialize Firebase Admin SDK
-// Point to your downloaded service account JSON
-const serviceAccount = require('./serviceAccountKey.json');
-
+// Initialize Firebase Admin SDK using Application Default Credentials
+// Cloud Run’s service account will be used automatically
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.applicationDefault(),
 });
 
 const express = require('express');
